@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.header-login {
+  height: 40px;
+  width: 115px;
+  background-color: #ffd441;
+  border-radius: 20px;
+}
