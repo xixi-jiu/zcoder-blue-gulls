@@ -5,8 +5,7 @@ import { storage } from "../localStorage/index";
 import { LoginInfo } from '@models/loginInfo';
 
 const rq = axios.create({
-  baseURL: "http://vip-api.yidengxuetang.cn",
-  // baseURL: "http://localhost:8000/2016-08-15/proxy/YD_VIP/app",
+  // baseURL: "http://47.105.96.139:8082",
   timeout: 30000,
   // headers: {
   //   "content-type": "application/json;charset=utf-8",

@@ -4,6 +4,7 @@ import { Spin } from 'antd';
 import NotFound from '@pages/NotFound/NotFound';
 const Home = React.lazy(() => import("@pages/Home/Home"));
 const Login = React.lazy(() => import("@pages/Login/Login"));
+const Register = React.lazy(() => import("@pages/Register/Register"));
 
 
 // 定义路由集合
@@ -17,6 +18,11 @@ export const routes: RouteProps[] = [
     path: "/login",
     exact: true,
     component: Login,
+  },
+  {
+    path: "/reg",
+    exact: true,
+    component: Register,
   },
 ];
 

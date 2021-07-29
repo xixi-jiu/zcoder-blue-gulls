@@ -2,5 +2,18 @@
   "name": "gulls-server",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "scripts": {
+    "start": "NODE_ENV=development nodemon ./app.js",
+    "prod": "NODE_ENV=production nodemon ./app.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@koa/router": "^10.1.0",
+    "axios": "^0.21.1",
+    "koa": "^2.13.1",
+    "koa-swig": "^2.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
 }

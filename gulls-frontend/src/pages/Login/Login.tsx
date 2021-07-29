@@ -1,16 +1,31 @@
 import React, { FC, useCallback, Suspense } from "react";
-import { Form, Input, Button } from "antd";
-import { Spin } from "antd";
+import { useHistory } from "react-router-dom";
+import { Form, Input, Button, message, Spin } from "antd";
 import "./Login.css";
-import { userApi } from '@api/index';
+import { userApi } from "@api/index";
+import { storage } from "@utils/index";
 // 登陆表单
 type loginForm = {
-  username: string, 
-  password: string, 
-}
+  email: string;
+  password: string;
+};
 const Login: FC<{}> = () => {
+  let history = useHistory();
   const onFinish = useCallback((form: loginForm) => {
-    userApi.login(form);
+    userApi
+      .login(form)
+      .then((res: any) => {
+        if (res.code === 0) {
+          storage.set("userInfo", res.data);
+          message.success("登陆成功！");
+          history.replace("/");
+        } else {
+          message.warning("用户名或密码错误");
+        }
+      })
+      .catch((err) => {
+        message.error(err);
+      });
   }, []);
   return (
     <>
@@ -29,7 +44,7 @@ const Login: FC<{}> = () => {
                 onFinish={onFinish}
               >
                 <Form.Item
-                  name="username"
+                  name="email"
                   rules={[{ required: true, message: "请输入邮箱/账号!" }]}
                 >
                   <Input placeholder="邮箱/账号" className="login-input" />
