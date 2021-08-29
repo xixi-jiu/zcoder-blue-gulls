@@ -18,8 +18,8 @@ module.exports = {
         watchContentBase: true,
         inline: true,
         proxy: { // 配置代理
-            '/napi': {
-                target: 'http://47.105.96.139:8082',
+            '/api': {
+                target: 'http://localhost:3000',
                 changeOrigin: true,
             },
         }

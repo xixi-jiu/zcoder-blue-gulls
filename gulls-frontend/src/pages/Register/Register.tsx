@@ -38,7 +38,7 @@ const Register: FC<{}> = () => {
           <div className="login-board">
             <div className="board-title">
               <div className="title-img">
-                <img src={require("./../../assets/images/title.png")} alt="" />
+                <img src={require("./../../assets/images/logo.png")} alt="" />
               </div>
               <div className="title-tag">会员注册</div>
               <Form

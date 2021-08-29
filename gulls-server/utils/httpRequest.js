@@ -22,6 +22,7 @@ rq.interceptors.request.use(req => {
     return Promise.reject(err);
 })
 rq.interceptors.response.use(res => {
+    console.log(123);
     const {
         data,
         status,

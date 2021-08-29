@@ -1,17 +1,15 @@
-const Router = require('@koa/router');
+const Router = require("@koa/router");
 const router = new Router();
 
-const IndexController = require('./IndexController');
-const indexController = new IndexController();
-
-const ApiController = require('./ApiController');
-const apiController = new ApiController();
+const HomeController = require("./HomeController");
+const homeController = new HomeController();
 
 function initController(app) {
-  router.get('/', indexController.actionIndex);
-  router.get('/api/login', apiController.actionLogin);
-  app
-    .use(router.routes())
-    .use(router.allowedMethods()); // 丰富 response 头
+  // 首页相关
+  // 1. 获取最新课程信息
+  router.get("/api/home/newCourse", homeController.actionNewCourse);
+  // 2. 获取导航栏信息
+  router.get("/api/home/nav", homeController.actionNav);
+  app.use(router.routes()).use(router.allowedMethods()); // 丰富 response 头
 }
 module.exports = initController;

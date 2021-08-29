@@ -1,22 +1,16 @@
 import React, { FC, useEffect, useState } from "react";
 
-import './NewCourse.css';
+import "./NewCourse.css";
 import { homeApi } from "@api/index";
 const NewCourse: FC<{}> = () => {
   const [course, setCourse] = useState([]);
   useEffect(() => {
-    homeApi
-      .getNewsCourse({})
-      .then((res: any) => {
-        if (res.code === 0) {
-          setCourse(res.data);
-          console.log(res.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    (async () => {
+      const res = await homeApi.getNewCourse();
+      setCourse(res.data);
+    })();
   }, []);
+
   return (
     <>
       <div className="container">
@@ -27,16 +21,18 @@ const NewCourse: FC<{}> = () => {
               return (
                 <div className="content-item" key={index}>
                   <div className="course-img">
-                    <img src={'http://47.105.96.139:8082/' + item.pic}></img>
+                    <img src={"http://47.105.96.139:8082/" + item.pic}></img>
                   </div>
                   <div className="course-title">{item.title}</div>
                   <div className="course-info">
-                    <div style={{color: "#E9232C"}}>¥{parseInt(item.price)}</div>
-                    <div style={{color: "gray"}}>{item.view}人学习</div>
+                    <div style={{ color: "#E9232C" }}>
+                      ¥{parseInt(item.price)}
+                    </div>
+                    <div style={{ color: "gray" }}>{item.view}人学习</div>
                   </div>
                 </div>
               );
-            } 
+            }
           })}
         </div>
       </div>

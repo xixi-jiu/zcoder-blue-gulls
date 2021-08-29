@@ -1,11 +1,10 @@
-import React, { FC,Suspense } from "react";
+import React, { FC, Suspense } from "react";
 import { Route, Switch, RouteProps } from "react-router";
-import { Spin } from 'antd';
-import NotFound from '@pages/NotFound/NotFound';
+import { Spin } from "antd";
+import NotFound from "@pages/NotFound/NotFound";
 const Home = React.lazy(() => import("@pages/Home/Home"));
 const Login = React.lazy(() => import("@pages/Login/Login"));
 const Register = React.lazy(() => import("@pages/Register/Register"));
-
 
 // 定义路由集合
 export const routes: RouteProps[] = [
@@ -20,40 +19,35 @@ export const routes: RouteProps[] = [
     component: Login,
   },
   {
-    path: "/reg",
+    path: "/register",
     exact: true,
     component: Register,
   },
 ];
 
-
 // 定义路由组件
-const Routes:FC = ()=>{
-    // 在这里拿到 token, 判断token是否有效
-    return (
-        <Suspense fallback={<Spin />}>
-            <Switch>
-                {
-                    routes.map((r,index)=>{
-                        const {path,exact,component} = r;
-                        const LazyCom = component;
-                        return (
-                            <Route
-                                key={index}
-                                path={path}
-                                exact={exact}
-                                render={
-                                    (props)=><LazyCom {...props} />
-                                }
-                             />
-                        )
-                    })
-                }
-                {/* 兜底的路由 */}
-                <Route component={NotFound} />
-            </Switch>
-        </Suspense>
-    )
-}
+const Routes: FC = () => {
+  // 在这里拿到 token, 判断token是否有效
+  return (
+    <Suspense fallback={<Spin />}>
+      <Switch>
+        {routes.map((r, index) => {
+          const { path, exact, component } = r;
+          const LazyCom = component;
+          return (
+            <Route
+              key={index}
+              path={path}
+              exact={exact}
+              render={(props) => <LazyCom {...props} />}
+            />
+          );
+        })}
+        {/* 兜底的路由 */}
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
+  );
+};
 
 export default Routes;
