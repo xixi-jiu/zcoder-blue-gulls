@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development nodemon ./app.js",
-    "prod": "NODE_ENV=production nodemon ./app.js"
+    "server:dev": "scripty",
+    "server:prod": "scripty"
   },
   "license": "MIT",
   "dependencies": {
@@ -14,6 +14,8 @@
     "koa-swig": "^2.2.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "gulp": "^4.0.2",
+    "nodemon": "^2.0.12",
+    "scripty": "^2.0.0"
   }
 }
