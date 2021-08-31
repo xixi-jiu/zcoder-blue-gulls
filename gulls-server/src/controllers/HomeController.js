@@ -1,5 +1,5 @@
-const Controller = require("./Controller");
-const { http } = require("../utils/index");
+import Controller from "./Controller";
+import { http } from "../utils/index";
 class HomeController extends Controller {
   constructor() {
     super();
@@ -10,13 +10,13 @@ class HomeController extends Controller {
     if (res.data.code == 0) {
       ctx.body = {
         code: 200,
-        msg: "请求成功",
+        msg: "请求成功了",
         data: res.data.data,
       };
     } else {
       ctx.body = {
         code: 500,
-        msg: "服务器错误",
+        msg: "服务器错误了",
         data: [],
       };
     }

@@ -1,1 +1,1 @@
-NODE_ENV=development nodemon ./app.js
+cross-env NODE_ENV=development gulp

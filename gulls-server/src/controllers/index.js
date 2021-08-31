@@ -1,7 +1,7 @@
 const Router = require("@koa/router");
 const router = new Router();
 
-const HomeController = require("./HomeController");
+import HomeController from "./HomeController";
 const homeController = new HomeController();
 
 function initController(app) {

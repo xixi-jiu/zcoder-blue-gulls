@@ -1,8 +1,8 @@
-const Koa = require("koa");
+import Koa from "koa";
 
-const config = require("./config");
-const initController = require("./controllers/index");
-const ErrorHandler = require("./middleware/ErrorHandler");
+import config from "./config";
+import initController from "./controllers/index";
+import ErrorHandler from "./middlewares/ErrorHandler";
 
 const app = new Koa();
 
