@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "gulls-server",
+      "script": "app.js",
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "out_file": "log/gulls-server.stdout.log",
+      "watch": true,
+      "instances": "max",
+      "exec_mode": "cluster"
+    }
+  ]
+}

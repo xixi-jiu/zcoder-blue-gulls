@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'development') {
 // 生产环境
 if (process.env.NODE_ENV === 'production') {
   const prodConfig = {
-    port: 80
+    port: 8085
   }
   config = {
     ...config,

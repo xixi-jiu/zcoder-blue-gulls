@@ -5,7 +5,7 @@ import { storage } from "../localStorage/index";
 import { LoginInfo } from '@models/loginInfo';
 
 const rq = axios.create({
-  // baseURL: "http://47.105.96.139:8082",
+  baseURL: "http://81.70.212.214:8082",
   timeout: 30000,
   // headers: {
   //   "content-type": "application/json;charset=utf-8",
@@ -19,7 +19,7 @@ rq.interceptors.request.use((config: AxiosRequestConfig) => {
   } catch (error) {
     userInfo = {};
   }
-  config.headers.xs = (userInfo && userInfo.sign) || "";
+  // config.headers.xs = (userInfo && userInfo.sign) || "";
   addPending(config);
   return config;
 });
